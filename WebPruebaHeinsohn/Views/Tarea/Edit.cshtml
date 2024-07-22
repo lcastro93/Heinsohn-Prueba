@@ -1,0 +1,40 @@
+﻿@model WebPruebaHeinsohn.Models.TareaViewModel
+
+div class=" card text-primary">
+<div class="card-header text-center">
+    <h5>Editar Tarea</h5>
+</div>
+<div class=" card-body text-center">
+    <div class=" col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label></label>
+                <select asp-for="IdEstado" class="form-control">
+                    <option value="" selected="selected">--Seleccione Estado--</option>
+                    @foreach (var item in ViewBag.Estados)
+                    {
+                        <option value="@item.Id">@item.Nombre</option>
+                    }
+                </select>
+                <span asp-validation-for="IdEstado" class="text-danger"></span>
+            </div>
+            <div><hr /></div>
+            <div class=" card-footer text-center">
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm" />
+                    <a asp-action="Index" class="btn btn-outline-success btn-sm">Volver a la Lista</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</div>
+
